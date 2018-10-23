@@ -12,7 +12,7 @@ class FishTest < MiniTest::Test
     fishes = [@fish_a, @fish_b, @fish_c]
 
     @river1 = River.new("The Tay", fishes)
-    @riverb = River.new("My Lovey River", )
+    @riverb = River.new("My Lovely River", )
   end
 
   def test_river_has_name

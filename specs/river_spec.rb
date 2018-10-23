@@ -1,13 +1,17 @@
 require('minitest/autorun')
 require('minitest/rg')
 require_relative('../river')
-require_relative('../bear')
 require_relative('../fish')
 
 class FishTest < MiniTest::Test
 
   def setup
-    @river1 = River.new("The Tay")
+    @fish_a = Fish.new("Adam")
+    @fish_b = Fish.new("Bob")
+    @fish_c = Fish.new("Colin")
+    fishes = [@fish_a, @fish_b, @fish_c]
+
+    @river1 = River.new("The Tay", fishes)
   end
 
 
@@ -17,5 +21,11 @@ class FishTest < MiniTest::Test
     assert_equal(expected, actual)
   end
 
+
+  def test_river_has_fish
+    expected = 3
+    actual = @river1.fish_in_river.count
+    assert_equal(expected, actual)
+  end
 
 end

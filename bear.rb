@@ -13,10 +13,14 @@ def roar
   return "Roooar"
 end
 
-def eats_fish(fish)
-  @stomach << fish
+def eats_fish(fish_array)
+  eaten_fish = fish_array.pop
+  @stomach << eaten_fish
 end
 
+def food_count
+  return @stomach.count
+end
 
 
 end

@@ -43,15 +43,19 @@ class BearTest < MiniTest::Test
   end
 
   def test_bear_can_put_fish_in_stomach
-    @bear1.eats_fish(@fish_d)
+    @bear1.eats_fish(@river2.fish_in_river)
     assert_equal(false, @bear1.stomach.empty?)
   end
 
   def test_does_fish_count_go_down
-    expected = 2
-    @bear1.eats_fish(@fish_d)
-    actual = @river2.return_fish_number
-    assert_equal(expected, actual)
+    @bear1.eats_fish(@river2.fish_in_river)
+    assert_equal(2, @river2.return_fish_number)
+  end
+
+  def test_how_much_bear_has_eaten
+    assert_equal(0, @bear1.food_count)
+    @bear1.eats_fish(@river2.fish_in_river)
+    assert_equal(1, @bear1.food_count)
   end
 
 

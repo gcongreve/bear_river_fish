@@ -22,9 +22,15 @@ class FishTest < MiniTest::Test
   end
 
 
-  def test_river_has_fish
+  def test_river_has_any_fish
     expected = 3
     actual = @river1.fish_in_river.count
+    assert_equal(expected, actual)
+  end
+
+  def test_number_of_fish_in_river
+    expected = 3
+    actual = @river1.return_fish_number
     assert_equal(expected, actual)
   end
 

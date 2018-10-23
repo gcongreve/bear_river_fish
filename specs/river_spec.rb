@@ -12,8 +12,8 @@ class FishTest < MiniTest::Test
     fishes = [@fish_a, @fish_b, @fish_c]
 
     @river1 = River.new("The Tay", fishes)
+    @riverb = River.new("My Lovey River", )
   end
-
 
   def test_river_has_name
     expected = "The Tay"
@@ -21,17 +21,19 @@ class FishTest < MiniTest::Test
     assert_equal(expected, actual)
   end
 
-
   def test_river_has_any_fish
-    expected = 3
-    actual = @river1.fish_in_river.count
-    assert_equal(expected, actual)
+    actual = @river1.fish_in_river.empty?
+    assert_equal(false, actual)
   end
 
   def test_number_of_fish_in_river
     expected = 3
     actual = @river1.return_fish_number
     assert_equal(expected, actual)
+  end
+
+  def test_river_starts_with_empty_fish_array
+    assert_equal([] , @riverb.fish_in_river)
   end
 
 end

@@ -9,10 +9,6 @@ def initialize(name, type)
   @stomach = []
 end
 
-def roar
-  return "Roooar"
-end
-
 def eats_fish(fish_array)
   eaten_fish = fish_array.pop
   @stomach << eaten_fish
@@ -22,5 +18,8 @@ def food_count
   return @stomach.count
 end
 
+def roar
+  return "RAAARGH!"
+end
 
 end

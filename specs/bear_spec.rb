@@ -19,7 +19,6 @@ class BearTest < MiniTest::Test
 
   end
 
-
   def test_bear_has_name
     expected = "Dave"
     actual = @bear1.name
@@ -32,22 +31,16 @@ class BearTest < MiniTest::Test
     assert_equal(expected, actual)
   end
 
-  def test_bear_can_roar
-    expected = "Roooar"
-    actual = @bear1.roar
-    assert_equal(expected, actual)
-  end
-
   def test_bear_has_empty_stomach
     assert_equal(true, @bear1.stomach.empty?)
   end
 
-  def test_bear_can_put_fish_in_stomach
+  def test_bear_can_eat_fish__stomach_full
     @bear1.eats_fish(@river2.fish_in_river)
     assert_equal(false, @bear1.stomach.empty?)
   end
 
-  def test_does_fish_count_go_down
+  def test_bear_can_eat_fish___river_fish_decrease
     @bear1.eats_fish(@river2.fish_in_river)
     assert_equal(2, @river2.return_fish_number)
   end
@@ -58,5 +51,10 @@ class BearTest < MiniTest::Test
     assert_equal(1, @bear1.food_count)
   end
 
+  def test_bear_can_roar
+    expected = "RAAARGH!"
+    actual = @bear1.roar
+    assert_equal(expected, actual)
+  end
 
 end
